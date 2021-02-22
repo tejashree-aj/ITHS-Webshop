@@ -107,7 +107,7 @@ namespace Bakdelar.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
 
                     if (roles.Any(x => x == "Admin"))
-                        return LocalRedirect("/Admin/Category/");
+                        return LocalRedirect("/Admin/Product/");
                     else
                         return LocalRedirect(returnUrl);
                 }

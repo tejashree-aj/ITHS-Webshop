@@ -88,7 +88,7 @@ namespace Bakdelar.Pages.Admin.Product
 
             HttpResponseMessage response = await httpClient.PostAsJsonAsync($"{_configuration.GetValue<String>("APIEndpoint")}api/product", Product);
 
-            if (response.IsSuccessStatusCode)
+        if (response.IsSuccessStatusCode)
             {
                 return RedirectToPage("./Index");
             }
@@ -102,7 +102,7 @@ namespace Bakdelar.Pages.Admin.Product
             var token = HttpContext.Request.Cookies["access_token"];
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            Categories = await httpClient.GetFromJsonAsync<List<CategoryView>>($"{_configuration.GetValue<String>("APIEndpoint")}api/category/getcategories");
+            Categories = await httpClient.GetFromJsonAsync<List<CategoryView>>($"{_configuration.GetValue<String>("APIEndpoint")}api/category");
         }
 
 
